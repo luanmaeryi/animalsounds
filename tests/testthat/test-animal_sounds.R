@@ -1,15 +1,21 @@
-#' Title
-#'
-#' @param animal a single string
-#' @param sound a single string
-#'
-#' @return Print
-#' @export
-#'
-#' @examples
-#' animal_sounds("dogs","woof")
-animal_sounds <- function(animal, sound) {
-  stopifnot(is.character(animal) & length(animal) == 1)
-  stopifnot(is.character(sound) & length(sound) == 1)
-  paste0("The ", animal, " goes ", sound, "!")
-}
+test_that("animal_sounds produces expected strings", {
+  dog_woof <- animal_sounds("dog", "woof")
+  expect_equal(dog_woof, "The dog goes woof!")
+  expect_equal(animal_sounds("cat", "miaow"), "The cat goes miaow!")
+  expect_equal(animal_sounds("giraffe"),
+               "The giraffe makes no sound.")
+})
+
+test_that("handles invalid inputs", {
+  expect_error(animal_sounds("dog", c("woof", "bow wow wow")),
+               class = "error_not_single_string"
+               )
+  expect_error(animal_sounds(factor("cat"), "meow"),
+               class = "error_not_single_string"
+               )
+
+})
+
+
+
+

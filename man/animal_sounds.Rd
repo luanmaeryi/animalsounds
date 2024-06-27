@@ -2,9 +2,10 @@
 % Please edit documentation in R/animal_sounds.R
 \name{animal_sounds}
 \alias{animal_sounds}
-\title{Title}
+\title{Print What the Animal Says
+Print \code{\link[rlang:abort]{rlang::abort()}}}
 \usage{
-animal_sounds(animal, sound)
+animal_sounds(animal, sound = NULL)
 }
 \arguments{
 \item{animal}{a single string}
@@ -15,7 +16,8 @@ animal_sounds(animal, sound)
 Print
 }
 \description{
-Title
+Print What the Animal Says
+Print \code{\link[rlang:abort]{rlang::abort()}}
 }
 \examples{
 animal_sounds("dogs","woof")
